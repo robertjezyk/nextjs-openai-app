@@ -18,10 +18,6 @@ const links = [
     name: "Prisma Example",
   },
   {
-    url: "/query",
-    name: "Query",
-  },
-  {
     url: "/tasks",
     name: "Tasks",
   },
