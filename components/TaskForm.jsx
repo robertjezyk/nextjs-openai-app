@@ -26,7 +26,6 @@ export const TaskForm = () => {
           placeholder="Add task"
           type="text"
           name="content"
-          defaultValue=""
           required
         />
         <button type="submit" className="btn join-item btn-primary uppercase">

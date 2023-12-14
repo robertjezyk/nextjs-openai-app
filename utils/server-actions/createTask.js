@@ -12,7 +12,7 @@ const createTask = async formData => {
     }
   });
   // revalidate path
-  revalidatePath('/prisma-example');
+  revalidatePath('/tasks');
 };
 
 export default createTask;

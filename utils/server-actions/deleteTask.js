@@ -3,6 +3,7 @@ import prisma from '@/utils/db';
 import { revalidatePath } from 'next/cache';
 
 const deleteTask = async formData => {
+  await new Promise((resolve) => setTimeout(resolve, 1000));
   const id = formData.get('id');
 
   await prisma.task.delete({
@@ -11,7 +12,7 @@ const deleteTask = async formData => {
     }
   })
   // revalidate path
-  revalidatePath('/prisma-example');
+  revalidatePath('/tasks');
 };
 
 export default deleteTask;
