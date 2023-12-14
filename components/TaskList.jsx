@@ -1,9 +1,9 @@
 import Link from 'next/link';
 import { DeleteForm } from "@/components/DeleteForm";
-import getTasks from "@/utils/server-actions/getTasks";
+import { getAllTasks } from "@/utils/actions";
 
 export const TaskList = async () => {
-  const tasks = await getTasks();
+  const tasks = await getAllTasks();
 
   if (tasks.length === 0) {
     return <h2 className="mt-8 font-medium text-lg">No tasks to show...</h2>

@@ -1,4 +1,4 @@
-import deleteTask from "@/utils/server-actions/deleteTask";
+import { deleteTask } from "@/utils/actions";
 
 export const DeleteForm = ({ id }) => {
   return (
