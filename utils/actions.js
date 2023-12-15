@@ -36,7 +36,7 @@ export const deleteTask = async formData => {
 };
 
 export const getTaskById = async id => await prisma.task.findUnique({
-  where: { id }
+  where: { id },
 });
 
 export const updateTask = async formData => {
