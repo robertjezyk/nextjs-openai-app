@@ -15,7 +15,7 @@ export const TaskList = async () => {
       <li className="flex justify-between items-center px-6 py-4 mb-4 border border-base-300 rounded-lg shadow-lg" key={task.id}>
         <h2 className={`text-lg capitalize ${task.completed ? 'line-through' : null}`}>{task.content}</h2>
         <div className="flex gap-6 items-center">
-          <Link href="" className="btn btn-accent btn-xs uppercase">Edit</Link>
+          <Link href={`tasks/${task.id}`} className="btn btn-accent btn-xs uppercase">Edit</Link>
           <DeleteForm id={task.id} />
         </div>
       </li>
