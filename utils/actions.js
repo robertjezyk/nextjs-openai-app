@@ -23,6 +23,24 @@ export const createTask = async (formData) => {
   revalidatePath("/tasks");
 };
 
+export const createTaskCustom = async (prevState, formData) => {
+  await new Promise((resolve) => setTimeout(resolve, 1000));
+  const content = formData.get("content");
+
+  try {
+    await prisma.task.create({
+      data: {
+        content,
+      },
+    });
+    // revalidate path
+    revalidatePath("/tasks");
+    return { message: "success!!!" };
+  } catch (error) {
+    return { message: "error..." };
+  }
+};
+
 export const deleteTask = async (formData) => {
   await new Promise((resolve) => setTimeout(resolve, 1000));
   const id = formData.get("id");

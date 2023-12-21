@@ -1,35 +1,30 @@
-'use client';
-import { useRef } from 'react';
-import { useFormStatus } from 'react-dom';
+"use client";
+import { useFormStatus, useFormState } from "react-dom";
 import { createTaskCustom } from "@/utils/actions";
 
 const SubmitButton = () => {
   const { pending } = useFormStatus();
   return (
-    <button type="submit" className="btn join-item btn-primary uppercase" disabled={pending}>
-      {pending ? 'Please wait...' : 'create task'}
+    <button
+      type="submit"
+      className="btn join-item btn-primary uppercase"
+      disabled={pending}
+    >
+      {pending ? "Please wait..." : "create task"}
     </button>
   );
 };
 
+const initialState = {
+  message: null,
+};
+
 export const TaskFormCustom = () => {
-  const formRef = useRef(null);
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    // Create FormData object from the form
-    const formData = new FormData(formRef.current);
-
-    // Call server action, e.g., createTaskCustom
-    await createTaskCustom(formData);
-
-    // Reset the form input
-    formRef.current.reset();
-  };
+  const [state, formAction] = useFormState(createTaskCustom, initialState);
 
   return (
-    <form onSubmit={handleSubmit} ref={formRef}>
+    <form action={formAction}>
+      {state.message ? <p className="mb-2">{state.message}</p> : null}
       <div className="join w-full">
         <input
           className="input input-bordered join-item w-full"
