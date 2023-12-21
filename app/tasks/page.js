@@ -8,7 +8,7 @@ const TasksPage = () => {
       <TaskForm />
       <TaskList />
     </>
-  )
-}
+  );
+};
 
-export default TasksPage
+export default TasksPage;

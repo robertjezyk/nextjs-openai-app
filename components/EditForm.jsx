@@ -26,7 +26,7 @@ export const EditForm = async ({ id }) => {
           />
         </label>
       </div>
-      <button className="btn btn-active btn-primary btn-block btn-sm">Edit</button>
+      <button className="btn btn-active btn-primary btn-block btn-sm" type="submit">Edit</button>
     </form>
   );
 };
