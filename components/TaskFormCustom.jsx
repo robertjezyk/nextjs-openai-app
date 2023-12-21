@@ -1,6 +1,8 @@
 "use client";
+import { useEffect } from "react";
 import { useFormStatus, useFormState } from "react-dom";
 import { createTaskCustom } from "@/utils/actions";
+import toast from "react-hot-toast";
 
 const SubmitButton = () => {
   const { pending } = useFormStatus();
@@ -21,6 +23,17 @@ const initialState = {
 
 export const TaskFormCustom = () => {
   const [state, formAction] = useFormState(createTaskCustom, initialState);
+
+  useEffect(() => {
+    if (!state.message) return;
+    if (state.message !== "success") {
+      toast.error(state.message);
+      return;
+    }
+    if (state.message === "success") {
+      toast.success("task created");
+    }
+  }, [state]);
 
   return (
     <form action={formAction}>
