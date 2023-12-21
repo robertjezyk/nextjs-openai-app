@@ -25,7 +25,6 @@ export const createTask = async (formData) => {
 };
 
 export const createTaskCustom = async (prevState, formData) => {
-  await new Promise((resolve) => setTimeout(resolve, 1000));
   const content = formData.get("content");
   const Task = z.object({
     content: z.string().min(5),
@@ -46,7 +45,6 @@ export const createTaskCustom = async (prevState, formData) => {
 };
 
 export const deleteTask = async (prevState, formData) => {
-  await new Promise((resolve) => setTimeout(resolve, 1000));
   const id = formData.get("id");
 
   try {
